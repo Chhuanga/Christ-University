@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - F1 Stats</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/aos.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+</head>
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
+    <nav class="navbar navbar-expand-md fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#">F1 Stats</a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive" type="button"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i
+                    class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto"></ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead" style="background-image:url('assets/img/intro-bg.jpg');">
+        <div data-aos="fade" class="intro-body"
+            style="background: url(&quot;assets/img/red-bull-f1-hd-cars-wallpaper-036a332ac8b5dc7dd8725e93f1f8f261.jpg&quot;) bottom / cover, var(--bs-body-color);">
+            <h1 class="brand-heading">F1 Stats</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <p class="intro-text"></p>
+                        <a class="btn btn-link btn-circle" role="button" href="#about"><i
+                                class="fa fa-angle-double-down"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="text-center content-section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>About f1 stats</h2>
+                    <p><br>Your one-stop hub for comprehensive Formula 1 statistics. Dive into driver and team
+                        performances, track records, and historical data. Stay updated with real-time race results and
+                        championship standings. Perfect for casual fans and hardcore enthusiasts alike.<br><br></p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel slide" data-bs-ride="false" id="carousel-1">
+            <div class="carousel-inner">
+                <div class="carousel-item active"><img class="w-100 d-block" src="assets/img/Bahrain_Circuit.avif"
+                        alt="Slide Image"></div>
+                <div class="carousel-item"><img class="w-100 d-block" src="assets/img/Miami.png" alt="Slide Image"
+                        style="transform: perspective(0px) scale(0.73);"></div>
+                <div class="carousel-item" style="transform: scale(0.73);"><img class="w-100 d-block"
+                        src="assets/img/Las_Vegas_Circuit.avif" alt="Slide Image"></div>
+            </div>
+            <div>
+                <a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span
+                        class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a>
+                <a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span
+                        class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a>
+            </div>
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="2"></button>
+            </div>
+        </div>
+    </section>
+    <section class="py-4 py-xl-5">
+        <div class="container">
+            <div class="bg-primary border rounded border-0 border-primary overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                        <div class="text-white p-4 p-md-5">
+                            <h2 class="fw-bold mb-3">Track Every Second!</h2>
+                            <p>Dive into Real-Time F1 Stats! Keep up with every twist, turn, and turbocharged moment on the track!".</p>
+                            <div class="my-3">
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-first order-md-last" style="min-height: 250px;"><img
+                            class="w-100 h-100 fit-contain pt-5 pt-md-0"
+                            src="assets\img\image.avif"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-4 py-xl-5">
+        <div class="container">
+            <div id="map" style="height: 400px; width: 100%; margin-bottom: 20px;"></div>
+            <!-- Add this new div for the SVG image -->
+            <div class="text-center mt-4">
+                <h3>Shanghai International Racing Circuit</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Shanghai_International_Racing_Circuit_track_map.svg"
+                    alt="Singapore Street Circuit" class="img-fluid" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container text-center">
+            <p>Copyright © F1 Stats 2024</p>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/aos.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/grayscale.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var map = L.map('map').setView([12.9359582, 77.6055775], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            var marker = L.marker([12.9359582, 77.6055775]).addTo(map);
+
+            marker.on('click', function () {
+                var url = 'https://maps.app.goo.gl/hEPNgWjaAVQzBkME8';
+                window.open(url, '_blank');
+            });
+
+            // Optional: Center the map on the marker when the page loads
+            map.panTo(marker.getLatLng());
+        });
+    </script>
+</body>
+
+</html>
