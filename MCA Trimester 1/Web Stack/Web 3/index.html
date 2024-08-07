@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/aos.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
 </head>
@@ -46,13 +47,43 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h2>About f1 stats</h2>
+                    <h5 class="modal-title" id="contactModalLabel">About F1 Stats</h5>
                     <p><br>Your one-stop hub for comprehensive Formula 1 statistics. Dive into driver and team
                         performances, track records, and historical data. Stay updated with real-time race results and
                         championship standings. Perfect for casual fans and hardcore enthusiasts alike.<br><br></p>
+            <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#contactModal">
+                        <i class="fas fa-envelope"></i> Learn More
+                    </button>
+            
+            <!-- Modal -->
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactModalLabel">About F1 Stats</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="color: black; text-align: left;">
+                            F1 Stats provides comprehensive Formula 1 statistics, including driver and team performances, track
+                            records, and historical data. Stay updated with real-time race results and championship standings.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
+         
+          
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var myModal = new bootstrap.Modal(document.getElementById('contactModal'));
+            });
+        </script>
         <div class="carousel slide" data-bs-ride="false" id="carousel-1">
             <div class="carousel-inner">
                 <div class="carousel-item active"><img class="w-100 d-block" src="assets/img/Bahrain_Circuit.avif"
@@ -82,15 +113,15 @@
                     <div class="col-md-6 d-flex flex-column justify-content-center">
                         <div class="text-white p-4 p-md-5">
                             <h2 class="fw-bold mb-3">Track Every Second!</h2>
-                            <p>Dive into Real-Time F1 Stats! Keep up with every twist, turn, and turbocharged moment on the track!".</p>
+                            <p>Dive into Real-Time F1 Stats! Keep up with every twist, turn, and turbocharged moment on
+                                the track!".</p>
                             <div class="my-3">
-                               
+
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 order-first order-md-last" style="min-height: 250px;"><img
-                            class="w-100 h-100 fit-contain pt-5 pt-md-0"
-                            src="assets\img\image.avif"></div>
+                            class="w-100 h-100 fit-contain pt-5 pt-md-0" src="assets\img\image.avif"></div>
                 </div>
             </div>
         </div>
@@ -102,7 +133,8 @@
             <div class="text-center mt-4">
                 <h3>Shanghai International Racing Circuit</h3>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Shanghai_International_Racing_Circuit_track_map.svg"
-                    alt="Singapore Street Circuit" class="img-fluid" style="max-width: 100%; height: auto;">
+                    alt="Shanghai International Racing Circuit" class="img-fluid"
+                    style="max-width: 100%; height: auto;">
             </div>
         </div>
     </section>
@@ -111,7 +143,9 @@
             <p>Copyright © F1 Stats 2024</p>
         </div>
     </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/aos.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/grayscale.js"></script>
@@ -127,13 +161,14 @@
             var marker = L.marker([12.9359582, 77.6055775]).addTo(map);
 
             marker.on('click', function () {
-                var url = 'https://maps.app.goo.gl/hEPNgWjaAVQzBkME8';
+                var url = 'https://maps.app.goo.gl/hEPNgWjaAVJMD9HR8';
                 window.open(url, '_blank');
             });
-
-            // Optional: Center the map on the marker when the page loads
-            map.panTo(marker.getLatLng());
         });
+
+        function openF1Page() {
+            window.open("https://www.formula1.com", "_blank");
+        }
     </script>
 </body>
 
