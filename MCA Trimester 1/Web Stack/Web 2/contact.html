@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="ExtremeX is a Fitness related website, providing meal plans and routines" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="New folder/small_logo.png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/general.css">
+
+    <title>ExtremeX</title>
+
+    <!-- Add jQuery and jQuery UI for the date picker -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+            $("#dob").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-100:+0",
+                dateFormat: "yy-mm-dd"
+            });
+        });
+    </script>
+</head>
+
+<body class="contactbody">
+    <header class="header">
+        <a href="index.html">
+            <img class="logo" alt="ExtremeX Logo" src="New folder/extremx-high-resolution-logo-white-transparent.png">
+        </a>
+
+        <nav class="main-nav">
+            <ul class="main-nav-list">
+                <li><a class="main-nav-list" href="working.html">How it Works</a></li>
+                <li><a class="main-nav-list" href="testimonial.html">Testimonials</a></li>
+                <li><a class="main-nav-list" href="Pricing.html">Pricing</a></li>
+                <li><a class="main-nav-list" href="contact.html">Try for free</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-contact">
+        <h1>Contact Us</h1>
+            <label for="email">Email: </label>
+            <input type="text" id="email" name ="email"><br><br>
+
+
+            <label for="fname">First Name:</label><br>
+            <input type="text" id="fname" name="fname"><br><br>
+
+            <label for="lname">Last Name:</label><br>
+            <input type="text" id="lname" name="lname"><br><br>
+
+            <label for="dob">Date of Birth:</label><br>
+            <input type="text" id="dob" name="dob"><br><br>
+
+            <label for="gender">Gender:</label><br>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="prefer_not_to_say">Prefer not to say</option>
+            </select><br><br>
+
+            <label for="state">State:</label><br>
+            <select id="state" name="state">
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+            </select><br><br>
+
+            <label for="fitness_goal">Fitness Goal:</label> 
+            <input type="radio" id="lose_weight" name="fitness_goal" value="Lose Weight">
+            <label for="lose_weight">Lose Weight</label>
+            <input type="radio" id="gain_muscle" name="fitness_goal" value="Gain Muscle">
+            <label for="gain_muscle">Gain Muscle</label><br>
+            <input type="radio" id="strength" name="fitness_goal" value="Strength">
+            <label for="strength">Strength</label>
+            <input type="radio" id="get_fit" name="fitness_goal" value="Get Fit">
+            <label for="get_fit">Get Fit</label><br><br>
+
+            <input type="submit" value="Submit">
+        
+    </main>
+    <footer class="footer">
+        <div class="container grid grid--footer">
+            <div class="logo-col">
+                <a href="#" class="footer-logo">
+                    <img class="logo" alt="Omnifood logo"
+                        src="New folder\extremx-high-resolution-logo-white-transparent.png" />
+                </a>
+    
+                <ul class="social-links">
+                    <li>
+                        <a class="footer-link" href="#"><ion-icon class="social-icon" name="logo-instagram"></ion-icon></a>
+                    </li>
+                    <li>
+                        <a class="footer-link" href="#"><ion-icon class="social-icon" name="logo-facebook"></ion-icon></a>
+                    </li>
+                    <li>
+                        <a class="footer-link" href="#"><ion-icon class="social-icon" name="logo-twitter"></ion-icon></a>
+                    </li>
+                </ul>
+    
+                <p class="copyright">
+                    Copyright &copy; <span class="year">2027</span> by ExtremX, Inc.
+                    All rights reserved.
+                </p>
+            </div>
+    
+            <div class="address-col">
+                <p class="footer-heading">Contact us</p>
+                <address class="contacts">
+                    <p class="address">
+                        03/04 1st Cross Street, HSR Layout, 5th Sector, Bengaluru India
+                    </p>
+                    <p>
+                        <a class="footer-link" href="tel:415-201-6370">415-201-6370</a><br />
+                        <a class="footer-link" href="mailto:hello@omnifood.com">hello@omnifood.com</a>
+                    </p>
+                </address>
+            </div>
+    
+            <nav class="nav-col">
+                <p class="footer-heading">Account</p>
+                <ul class="footer-nav">
+                    <li><a class="footer-link" href="#">Create account</a></li>
+                    <li><a class="footer-link" href="#">Sign in</a></li>
+                    <li><a class="footer-link" href="#">iOS app</a></li>
+                    <li><a class="footer-link" href="#">Android app</a></li>
+                </ul>
+            </nav>
+    
+            <nav class="nav-col">
+                <p class="footer-heading">Company</p>
+                <ul class="footer-nav">
+                    <li><a class="footer-link" href="#">About ExtremeX</a></li>
+                    <li><a class="footer-link" href="#">For Business</a></li>
+                    <li><a class="footer-link" href="#">Careers</a></li>
+                </ul>
+            </nav>
+    
+            <nav class="nav-col">
+                <p class="footer-heading">Resources</p>
+                <ul class="footer-nav">
+                    <li><a class="footer-link" href="#">Help center</a></li>
+                    <li><a class="footer-link" href="#">Privacy & terms</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+
+</html>
