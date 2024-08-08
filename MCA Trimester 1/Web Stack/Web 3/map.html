@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>F1 Stats - Route Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>F1 Stats - Route Map</h1>
+    <div id="map"></div>
+
+    <script>
+        // Define the starting and ending locations
+        var start = [48.8566, 2.3522]; // Paris, France
+        var end = [51.5074, -0.1278]; // London, UK
+
+        // Create the map
+        var map = L.map('map').setView([start[0], start[1]], 6);
+
+        // Add the OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Create the starting and ending markers
+        var startMarker = L.marker(start).addTo(map);
+        var endMarker = L.marker(end).addTo(map);
+
+        // Calculate the route using Leaflet Routing Machine
+        var control = L.Routing.control({
+            waypoints: [
+                L.latLng(start[0], start[1]),
+                L.latLng(end[0], end[1])
+            ],
+            routeWhileDragging: false,
+            geocoder: L.Control.Geocoder.nominatim(),
+            router: L.Routing.osrmv1({
+                serviceUrl: 'https://router.project-osrm.org/route/v1/'
+            })
+        }).addTo(map);
+
+        // Fit the map to the route bounds
+        control.on('routesfound', function (e) {
+            map.fitBounds(e.routes[0].getBounds());
+        });
+    </script>
+
+    <!-- Include the Leaflet Routing Machine plugin -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.min.js"></script>
+</body>
+
+</html>
