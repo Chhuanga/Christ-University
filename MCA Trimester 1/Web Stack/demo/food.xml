@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="food.xsl" type="text/xsl"?>
+<foodlist>
+    <fooditem type="Italian">
+        <name>Pasta</name>
+        <cost>$4</cost>
+    </fooditem>
+    <fooditem type="Chinese">
+        <name>Noodles</name>
+        <cost>$2</cost>
+    </fooditem>
+    <fooditem type="Italian">
+        <name>Pizza</name>
+        <cost>$7</cost>
+    </fooditem>
+    <fooditem type="American">
+        <name>Burger</name>
+        <cost>$10</cost>
+        </fooditem>
+    
+</foodlist>

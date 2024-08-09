@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="cardemo.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<car-order>
+    <products>
+        <product1>
+            <product-code>101</product-code>
+            <product-name>Swift</product-name>
+            <product-quantity>6</product-quantity>
+        </product1>
+
+        <product2>
+            <product-code>201</product-code>
+            <product-name>BMW</product-name>
+            <product-sales>15</product-sales>
+        </product2>
+    </products>
+    <address>
+        <line>12</line>
+        <city>AA       
+        </city>
+        <state>BB</state>
+        <country>US</country>
+        
+               
+    </address>
+
+    <uk-address>
+        <line>66</line>
+        <city>ABc</city>
+        <state>TN</state>
+        <country>US</country>
+        <zip-code>123456</zip-code>
+    </uk-address>
+</car-order>

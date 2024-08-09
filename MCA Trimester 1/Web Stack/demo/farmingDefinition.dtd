@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT farm (crop+)>
+<!ELEMENT crop (name,plantingDate,harvestingDate,quantity,unit)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT plantingDate (#PCDATA)>
+<!ELEMENT harvestingDate (#PCDATA)>
+<!ELEMENT quantity (#PCDATA)>
+<!ELEMENT unit (#PCDATA)>
+
+<!ATTLIST crop id ID #REQUIRED>
+<!ATTLIST crop plant (veg|fruit|veggi) "veg">

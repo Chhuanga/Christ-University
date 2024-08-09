@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE farm SYSTEM "farmingDefinition.dtd">
+<farm>
+    <crop id="C1" plant="veg">
+        <name>Rice</name>
+        <plantingDate>2024-08-15</plantingDate>
+        <harvestingDate>2025-01-06</harvestingDate>
+        <quantity>3000</quantity>
+        <unit>kg</unit>
+        </crop>
+        <crop id="C2" plant="fruit">
+            <name>Rice</name>
+            <plantingDate>2024-08-15</plantingDate>
+            <harvestingDate>2025-01-06</harvestingDate>
+            <quantity>3000</quantity>
+            <unit>kg</unit>
+    </crop>
+</farm>

@@ -1,0 +1,33 @@
+<car-order>
+    <products>
+        
+        <product1>
+            <product-code>
+            <product-name>
+            <product-quantity>
+        </product1>
+
+        <product2>
+            <product-code>
+            <product-name>
+            <product-sales>
+        </product2>
+        
+    </products>
+
+    <address>
+        <line>
+        <city>
+        <state>
+        <country>
+    </address>
+
+    <uk-address>
+        <line>
+        <city>
+        <state>
+        <country>
+        <zip-code>
+    </uk-address>
+
+</car-order>

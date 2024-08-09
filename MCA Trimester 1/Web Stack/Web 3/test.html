@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Driver Statistics</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>F1 Driver Statistics</h1>
+    <table id="f1-stats">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Team</th>
+                <th>Nationality</th>
+                <th>Championships</th>
+                <th>Race Wins</th>
+                <th>Podiums</th>
+                <th>Fastest Laps</th>
+                <th>Pole Positions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        function loadXMLDoc() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    populateTable(this);
+                }
+            };
+            xmlhttp.open("GET", "f1_stats.xml", true);
+            xmlhttp.send();
+        }
+
+        function populateTable(xml) {
+            var xmlDoc = xml.responseXML;
+            var table = document.getElementById("f1-stats").getElementsByTagName('tbody')[0];
+            var drivers = xmlDoc.getElementsByTagName("driver");
+
+            for (var i = 0; i < drivers.length; i++) {
+                var row = table.insertRow(-1);
+                var driverData = [
+                    "name", "team", "nationality", "championships",
+                    "race_wins", "podiums", "fastest_laps", "pole_positions"
+                ];
+
+                for (var j = 0; j < driverData.length; j++) {
+                    var cell = row.insertCell(-1);
+                    cell.textContent = drivers[i].getElementsByTagName(driverData[j])[0].textContent;
+                }
+            }
+        }
+
+        // Load the XML file when the page is loaded
+        window.onload = loadXMLDoc;
+    </script>
+</body>
+</html>

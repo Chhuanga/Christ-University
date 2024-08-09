@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="car-order" type="car-orderType"></xs:element>
+<xs:group name="productt">
+    <xs:sequence>
+<xs:element name="product-code" type="xs:integer"></xs:element>
+<xs:element name="product-name" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:group>
+
+<xs:complexType name="car-orderType">
+<xs:sequence>
+    <xs:element name="products" type="productsType"></xs:element>
+    <xs:element name="address" type="addressType"></xs:element>
+    <xs:element name="uk-address" type="uk-addressType"></xs:element>
+    
+
+</xs:sequence>
+
+</xs:complexType>
+
+
+
+
+<xs:complexType name="productsType" >
+    <xs:sequence>
+    <xs:element name="product1" type="productType1"></xs:element>
+    <xs:element name="product2" type="productType2"></xs:element>
+</xs:sequence>
+</xs:complexType>
+    
+
+
+<xs:complexType name="productType1">
+<xs:sequence>
+<xs:group ref="productt"></xs:group>
+<xs:element name="product-quantity" type="xs:integer" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+<xs:attribute name="product-urn" type="xs:string" use="optional" default="www.abc.com"></xs:attribute>
+</xs:complexType>
+
+
+<xs:complexType name="productType2">
+<xs:sequence>
+    <xs:group ref="productt"></xs:group>
+    <xs:element name="product-sales" type="xs:integer" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+<xs:attribute name="product-urn" type="xs:string" use="optional" default="www.abc.com"></xs:attribute>
+</xs:complexType>
+
+
+
+
+<xs:complexType name="addressType">
+    <xs:sequence>
+<xs:element name="line" type="xs:string"></xs:element>
+<xs:element name="city" type="xs:string"></xs:element>
+<xs:element name="state" type="xs:string"></xs:element>
+<xs:element name="country" type="countryType"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="countryType">
+<xs:restriction base="xs:string">
+    <xs:enumeration value="US"></xs:enumeration>
+    <xs:enumeration value="UK"></xs:enumeration>
+
+</xs:restriction>
+
+</xs:simpleType>
+
+<xs:complexType name="uk-addressType">
+    <xs:complexContent>
+        <xs:extension base="addressType">
+            <xs:sequence>
+                <xs:element name="zip-code" type="xs:string"></xs:element>
+            </xs:sequence>
+        </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
+</xs:schema>
