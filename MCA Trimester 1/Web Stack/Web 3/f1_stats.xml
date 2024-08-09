@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE f1_stats SYSTEM "f1_stats.dtd">
+<f1_stats xmlns="http://example.com/f1_stats" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://example.com/f1_stats f1_stats.xsd">
+  <driver>
+    <name>Lewis Hamilton</name>
+    <team>Mercedes</team>
+    <nationality>British</nationality>
+    <championships>7</championships>
+    <race_wins>103</race_wins>
+    <podiums>183</podiums>
+    <fastest_laps>78</fastest_laps>
+    <pole_positions>103</pole_positions>
+  </driver>
+
+  <driver>
+    <name>Michael Schumacher</name>
+    <team>Ferrari</team>
+    <nationality>German</nationality>
+    <championships>7</championships>
+    <race_wins>91</race_wins>
+    <podiums>155</podiums>
+    <fastest_laps>77</fastest_laps>
+    <pole_positions>68</pole_positions>
+  </driver>
+
+  <driver>
+    <name>Sebastian Vettel</name>
+    <team>Red Bull</team>
+    <nationality>German</nationality>
+    <championships>4</championships>
+    <race_wins>53</race_wins>
+    <podiums>122</podiums>
+    <fastest_laps>38</fastest_laps>
+    <pole_positions>57</pole_positions>
+  </driver>
+
+  <driver>
+    <name>Ayrton Senna</name>
+    <team>McLaren</team>
+    <nationality>Brazilian</nationality>
+    <championships>3</championships>
+    <race_wins>41</race_wins>
+    <podiums>80</podiums>
+    <fastest_laps>19</fastest_laps>
+    <pole_positions>65</pole_positions>
+  </driver>
+
+  <driver>
+    <name>Alain Prost</name>
+    <team>McLaren</team>
+    <nationality>French</nationality>
+    <championships>4</championships>
+    <race_wins>51</race_wins>
+    <podiums>106</podiums>
+    <fastest_laps>41</fastest_laps>
+    <pole_positions>33</pole_positions>
+  </driver>
+
+  <driver>
+    <name>Fernando Alonso</name>
+    <team>Alpine</team>
+    <nationality>Spanish</nationality>
+    <championships>2</championships>
+    <race_wins>32</race_wins>
+    <podiums>98</podiums>
+    <fastest_laps>23</fastest_laps>
+    <pole_positions>22</pole_positions>
+  </driver>
+
+  <driver>
+    <name>Max Verstappen</name>
+    <team>Red Bull</team>
+    <nationality>Dutch</nationality>
+    <championships>2</championships>
+    <race_wins>35</race_wins>
+    <podiums>75</podiums>
+    <fastest_laps>18</fastest_laps>
+    <pole_positions>20</pole_positions>
+  </driver>
+
+  <driver>
+    <name>Kimi Raikkonen</name>
+    <team>Alfa Romeo</team>
+    <nationality>Finnish</nationality>
+    <championships>1</championships>
+    <race_wins>21</race_wins>
+    <podiums>103</podiums>
+    <fastest_laps>46</fastest_laps>
+    <pole_positions>18</pole_positions>
+  </driver>
+</f1_stats>

@@ -1,0 +1,10 @@
+<!ELEMENT f1_stats (driver+)>
+<!ELEMENT driver (name, team, nationality, championships, race_wins, podiums, fastest_laps, pole_positions)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT team (#PCDATA)>
+<!ELEMENT nationality (#PCDATA)>
+<!ELEMENT championships (#PCDATA)>
+<!ELEMENT race_wins (#PCDATA)>
+<!ELEMENT podiums (#PCDATA)>
+<!ELEMENT fastest_laps (#PCDATA)>
+<!ELEMENT pole_positions (#PCDATA)>

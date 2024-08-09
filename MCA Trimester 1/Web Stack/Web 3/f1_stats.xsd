@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://example.com/f1_stats" targetNamespace="http://example.com/f1_stats" elementFormDefault="qualified">
+  <xs:element name="f1_stats">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="driver" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="team" type="xs:string"/>
+              <xs:element name="nationality" type="xs:string"/>
+              <xs:element name="championships" type="championshipsType"/>
+              <xs:element name="race_wins" type="raceWinsType"/>
+              <xs:element name="podiums" type="xs:positiveInteger"/>
+              <xs:element name="fastest_laps" type="xs:positiveInteger"/>
+              <xs:element name="pole_positions" type="xs:positiveInteger"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="championshipsType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="7"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="raceWinsType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="103"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
