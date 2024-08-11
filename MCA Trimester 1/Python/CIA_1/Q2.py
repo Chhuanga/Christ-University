@@ -17,7 +17,7 @@ class LibraryItem:
     def update_availability(self, new_status):
         self.availability = new_status
 
-1
+
 class Book(LibraryItem):
     def __init__(self, library_name, location, book_name, author, genre, isbn):
         super().__init__(library_name, location)
