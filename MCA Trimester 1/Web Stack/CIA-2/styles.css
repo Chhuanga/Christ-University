@@ -1,0 +1,312 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1rem;
+}
+
+nav .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700; 
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+nav .nav-links li {
+    margin-left: 1rem;
+}
+
+nav .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400; 
+}
+
+nav .burger {
+    display: none;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+/* Hero Section */
+#hero {
+    background-image: url('https://images.unsplash.com/photo-1536637304349-9380cadaf33a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+#hero .hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700; 
+}
+
+#hero .btn {
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700; /* Use bold weight for button */
+}
+
+/* Projects Section */
+#projects {
+    padding: 2rem;
+    text-align: center;
+}
+
+#projects .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#projects .gallery-item {
+    margin: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#projects .gallery-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 20px;
+}
+
+#projects .gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+#projects .gallery-item h3 {
+    margin-top: 0.5rem;
+    font-weight: 700; 
+}
+
+/* GitHub Section */
+#github {
+    padding: 2rem;
+    text-align: center;
+}
+
+#github #repo-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#github .repo {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 1rem;
+    width: 200px;
+}
+
+@media (max-width: 768px) {
+    nav .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+
+    nav .burger {
+        display: block;
+    }
+
+    nav .nav-links.active {
+        display: flex;
+    }
+}
+
+/* Contact Section */
+#contact {
+    padding: 2rem 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+#contact .container {
+    padding: 2rem;
+}
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #007bff;
+    font-weight: 700; 
+}
+
+#contact p {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: 400; 
+}
+
+#contact .form-group {
+    margin-bottom: 1.5rem;
+}
+
+#contact .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#contact .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#contact .btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 700; 
+}
+
+#contact .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Section */
+#footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#footer p {
+    margin-bottom: 1rem;
+    font-weight: 400; 
+}
+
+#footer .social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+#footer .social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+#footer .social-icons a:hover {
+    color: #007bff;
+}
+
+/* GitHub Repo Section */
+#github-repo {
+    padding: 2rem 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+#github-repo .container {
+    padding: 2rem;
+}
+
+#github-repo h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #007bff;
+    font-weight: 700; 
+}
+
+#github-repo ul {
+    list-style: none;
+    padding: 0;
+}
+
+#github-repo .list-group-item {
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#github-repo .list-group-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#github-repo .list-group-item strong {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 700; 
+}
+
+#github-repo .list-group-item a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 700; 
+}
+
+#github-repo .list-group-item a:hover {
+    text-decoration: underline;
+}

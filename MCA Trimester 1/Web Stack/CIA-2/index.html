@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dave Sharma</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Dave Sharma</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#hero">Home</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Hi There, Welcome to my Page</h1>
+            <a href="about.html" class="btn btn-primary">About Me</a>
+        </div>
+    </section>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project Gallery</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="gallery">
+                <div class="gallery-item" data-toggle="modal" data-target="#project1Modal">
+                    <img src="images/facial-recognition-collage-concept.jpg" alt="Project 1">
+                    <h3>Attendance System</h3>
+                </div>
+                <div class="gallery-item" data-toggle="modal" data-target="#project2Modal">
+                    <img src="images/3804849.jpg" alt="Project 2">
+                    <h3>Clothing Store</h3>
+                </div>
+                <div class="gallery-item" data-toggle="modal" data-target="#project3Modal">
+                    <img src="images/2324023.jpg" alt="Project 3">
+                    <h3>Scientific Calculator</h3>
+                </div>
+             
+        </section>
+    
+        <!-- Modals -->
+        <!-- Project 1 Modal -->
+        <div class="modal fade" id="project1Modal" tabindex="-1" aria-labelledby="project1ModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="project1ModalLabel">Attendance using Facial Recognition</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>This project is used to record attendance automatically upon entering a workspace.</p>
+                        <p> With the help
+                            of CNN technology, it allows us to recognize an employee's face and quicky record attendance without any manual intervention.</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Project 2 Modal -->
+        <div class="modal fade" id="project2Modal" tabindex="-1" aria-labelledby="project2ModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="project2ModalLabel">Apex Clothing</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <p>Streetwear Brand targeted to the youth of the country.</p>
+                        <p>It is a clothing store that sells a variety of products like T-shirts, Hoodies, Sweatshirts, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Project 3 Modal -->
+        <div class="modal fade" id="project3Modal" tabindex="-1" aria-labelledby="project3ModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="project3ModalLabel">Scientific Calculator</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                       <p>Scientific Calculator is a calculator that is designed to perform calculations in science, engineering, and mathematics.</p>
+                        <p>It has a variety of functions like logarithmic, exponential, trigonometric, and many more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <script src="script.js"></script>
+    </body>
+    </html>
+
+      <!-- GitHub Repository Section -->
+      <section id="github-repo">
+        <div class="container">
+            <h2>GitHub Repository</h2>
+            <ul id="repo-list" class="list-group"></ul>
+        </div>
+    </section>
+    </section>
+        <!-- Footer Section -->
+        <footer id="footer">
+            <div class="container">
+                <p>Contact me at: <a href="mailto:dave.sharma@gmail.com">dave.sharma@gmail.com</a></p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/dave-sharma" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/dave_sharma" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/dave.sharma" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/Chhuanga" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </footer>
+    
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="script.js"></script>
+  
+</body>
+
+</html>

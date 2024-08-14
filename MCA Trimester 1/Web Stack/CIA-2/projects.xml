@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projects.xsd">
+    <project>
+        <title>Attendance System Using Facial Recognition</title>
+        <description>This project uses facial recognition technology to mark attendance.</description>
+        <technology>Python, OpenCV, TensorFlow</technology>
+    </project>
+    <project>
+        <title>ECommerce Website for Clothes</title>
+        <description>An eCommerce platform for buying and selling clothes online.</description>
+        <technology>React, Node.js, MongoDB</technology>
+    </project>
+    <project>
+        <title>Scientific Calculator</title>
+        <description>A web-based scientific calculator with advanced mathematical functions.</description>
+        <technology>JavaScript, HTML, CSS</technology>
+    </project>
+</projects>
