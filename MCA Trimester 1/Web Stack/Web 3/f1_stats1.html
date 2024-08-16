@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Driver Statistics</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1c1c1c;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #e10600;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+
+        th {
+            background-color: #1e5bc6;
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #3c3c3c;
+        }
+
+        tr:hover {
+            background-color: #444;
+            transition: background-color 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            table, tr, td {
+                display: block;
+            }
+
+            tr {
+                margin-bottom: 20px;
+                border: 1px solid #444;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+            }
+
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: 700;
+            }
+
+            th {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>F1 Driver Statistics</h1>
+        </header>
+        <div class="content">
+            <table class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Team</th>
+                        <th>Nationality</th>
+                        <th>Championships</th>
+                        <th>Race Wins</th>
+                        <th>Podiums</th>
+                        <th>Fastest Laps</th>
+                        <th>Pole Positions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Name">Lewis Hamilton</td>
+                        <td data-label="Team">Mercedes</td>
+                        <td data-label="Nationality">British</td>
+                        <td data-label="Championships">7</td>
+                        <td data-label="Race Wins">103</td>
+                        <td data-label="Podiums">183</td>
+                        <td data-label="Fastest Laps">78</td>
+                        <td data-label="Pole Positions">103</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Michael Schumacher</td>
+                        <td data-label="Team">Ferrari</td>
+                        <td data-label="Nationality">German</td>
+                        <td data-label="Championships">7</td>
+                        <td data-label="Race Wins">91</td>
+                        <td data-label="Podiums">155</td>
+                        <td data-label="Fastest Laps">77</td>
+                        <td data-label="Pole Positions">68</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Sebastian Vettel</td>
+                        <td data-label="Team">Red Bull</td>
+                        <td data-label="Nationality">German</td>
+                        <td data-label="Championships">4</td>
+                        <td data-label="Race Wins">53</td>
+                        <td data-label="Podiums">122</td>
+                        <td data-label="Fastest Laps">38</td>
+                        <td data-label="Pole Positions">57</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Ayrton Senna</td>
+                        <td data-label="Team">McLaren</td>
+                        <td data-label="Nationality">Brazilian</td>
+                        <td data-label="Championships">3</td>
+                        <td data-label="Race Wins">41</td>
+                        <td data-label="Podiums">80</td>
+                        <td data-label="Fastest Laps">19</td>
+                        <td data-label="Pole Positions">65</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Alain Prost</td>
+                        <td data-label="Team">McLaren</td>
+                        <td data-label="Nationality">French</td>
+                        <td data-label="Championships">4</td>
+                        <td data-label="Race Wins">51</td>
+                        <td data-label="Podiums">106</td>
+                        <td data-label="Fastest Laps">41</td>
+                        <td data-label="Pole Positions">33</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Fernando Alonso</td>
+                        <td data-label="Team">Alpine</td>
+                        <td data-label="Nationality">Spanish</td>
+                        <td data-label="Championships">2</td>
+                        <td data-label="Race Wins">32</td>
+                        <td data-label="Podiums">98</td>
+                        <td data-label="Fastest Laps">23</td>
+                        <td data-label="Pole Positions">22</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Max Verstappen</td>
+                        <td data-label="Team">Red Bull</td>
+                        <td data-label="Nationality">Dutch</td>
+                        <td data-label="Championships">2</td>
+                        <td data-label="Race Wins">35</td>
+                        <td data-label="Podiums">75</td>
+                        <td data-label="Fastest Laps">18</td>
+                        <td data-label="Pole Positions">20</td>  
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Kimi Raikkonen</td>
+                        <td data-label="Team">Alfa Romeo</td>
+                        <td data-label="Nationality">Finnish</td>
+                        <td data-label="Championships">1</td>
+                        <td data-label="Race Wins">21</td>
+                        <td data-label="Podiums">103</td>
+                        <td data-label="Fastest Laps">46</td>
+                        <td data-label="Pole Positions">18</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
