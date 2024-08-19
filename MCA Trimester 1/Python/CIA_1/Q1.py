@@ -1,18 +1,15 @@
-#Q1 landmarks
+ordered_part = ['Start', 'River']
+jumbled_part = ['Clearing', 'Village', 'Cave']
+ordered_path = []
 
-def reconstruct_path(l1,ordered_part,jumbled_part):
-    for i in range(len(l1)):
-        if l1[i]==ordered_part[0]:
-            start=i
-        if l1[i]==ordered_part[1]:
-            end=i
-    l1[start+1:end]=jumbled_part
-    return l1
+def reconstruct_path(l1, l2):
+    max_len = max(len(l1), len(l2))
+    for i in range(max_len):
+        if i < len(l1):
+            ordered_path.append(l1[i])
+        if i < len(l2):
+            ordered_path.append(l2[i])
+    
+    print(ordered_path)
 
-l1=['Start','Clearing','River','Village','Cave']
-
-ordered_part=['Start','River']
-jumbled_part=['Clearing','Village','Cave']
-
-print(f'Existing Orderded path {ordered_part}: \n Jumbled_path: {jumbled_part} \n New Ordered Path: {reconstruct_path(l1,ordered_part,jumbled_part)}')
-
+reconstruct_path(ordered_part, jumbled_part)
