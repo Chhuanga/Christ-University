@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>User Registration</title>
+    <style>
+        .error { color: red; }
+        .valid { border: 2px solid green; }
+        .invalid { border: 2px solid red; }
+        .feedback { display: inline-block; margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <h1>User Registration</h1>
+    <form id="registrationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <span class="feedback" id="nameFeedback"></span>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="feedback" id="emailFeedback"></span>
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <span class="feedback" id="passwordFeedback"></span>
+        <br><br>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <span class="feedback" id="confirmPasswordFeedback"></span>
+        <br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+        <span class="feedback" id="dobFeedback"></span>
+        <br><br>
+
+        <button type="submit" id="submitButton">Register</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registrationForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const dobInput = document.getElementById('dob');
+            const submitButton = document.getElementById('submitButton');
+
+            const nameFeedback = document.getElementById('nameFeedback');
+            const emailFeedback = document.getElementById('emailFeedback');
+            const passwordFeedback = document.getElementById('passwordFeedback');
+            const confirmPasswordFeedback = document.getElementById('confirmPasswordFeedback');
+            const dobFeedback = document.getElementById('dobFeedback');
+
+            function validateName() {
+                const name = nameInput.value.trim();
+                const isValid = /^[A-Za-z\s]{3,}$/.test(name);
+                nameInput.classList.toggle('valid', isValid);
+                nameInput.classList.toggle('invalid', !isValid);
+                nameFeedback.textContent = isValid ? '✔️' : '❌ Name must be at least 3 characters long and contain only letters and spaces.';
+                return isValid;
+            }
+
+             function validateEmail() {
+                const email = emailInput.value.trim();
+                const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                emailInput.classList.toggle('valid', isValid);
+                emailInput.classList.toggle('invalid', !isValid);
+                emailFeedback.textContent = isValid ? '✔️' : '❌ Invalid email format.';
+                return isValid;
+            }
+
+            function validatePassword() {
+                const password = passwordInput.value.trim();
+                const isValid = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
+                passwordInput.classList.toggle('valid', isValid);
+                passwordInput.classList.toggle('invalid', !isValid);
+                passwordFeedback.textContent = isValid ? '✔️' : '❌ Password must be at least 8 characters long and contain both letters and numbers.';
+                return isValid;
+            }
+
+            function validateConfirmPassword() {
+                const password = passwordInput.value.trim();
+                const confirmPassword = confirmPasswordInput.value.trim();
+                const isValid = password === confirmPassword;
+                confirmPasswordInput.classList.toggle('valid', isValid);
+                confirmPasswordInput.classList.toggle('invalid', !isValid);
+                confirmPasswordFeedback.textContent = isValid ? '✔️' : '❌ Passwords do not match.';
+                return isValid;
+            }
+
+            function validateDob() {
+                const dob = dobInput.value;
+                const dobDate = new Date(dob);
+                const today = new Date();
+                const age = today.getFullYear() - dobDate.getFullYear();
+                const isValid = age >= 18;
+                dobInput.classList.toggle('valid', isValid);
+                dobInput.classList.toggle('invalid', !isValid);
+                dobFeedback.textContent = isValid ? '✔️' : '❌ You must be at least 18 years old.';
+                return isValid;
+            }
+
+            function validateForm(event) {
+                event.preventDefault();
+                const isNameValid = validateName();
+                const isEmailValid = validateEmail();
+                const isPasswordValid = validatePassword();
+                const isConfirmPasswordValid = validateConfirmPassword();
+                const isDobValid = validateDob();
+
+                if (isNameValid && isEmailValid && isPasswordValid && isConfirmPasswordValid && isDobValid) {
+                    alert('Form submitted successfully!');
+                    form.submit();
+                } else {
+                    alert('Please correct the errors in the form.');
+                }
+            }
+
+            nameInput.addEventListener('input', validateName);
+            emailInput.addEventListener('input', validateEmail);
+            passwordInput.addEventListener('input', validatePassword);
+            confirmPasswordInput.addEventListener('input', validateConfirmPassword);
+            dobInput.addEventListener('input', validateDob);
+            form.addEventListener('submit', validateForm);
+        });
+    </script>
+</body>
+</html>

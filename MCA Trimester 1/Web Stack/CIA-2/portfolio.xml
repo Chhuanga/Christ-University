@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projects>
+    <project>
+        <title>Attendance using Facial Recognition</title>
+        <description>This project is used to record attendance automatically upon entering a workspace.</description>
+        <technologies>
+            <technology>Python</technology>
+            <technology>OpenCV</technology>
+            <technology>TensorFlow</technology>
+        </technologies>
+    </project>
+    <project>
+        <title>Apex Clothing</title>
+        <description>Streetwear Brand targeted to the youth of the country.</description>
+        <technologies>
+            <technology>HTML</technology>
+            <technology>CSS</technology>
+            <technology>JavaScript</technology>
+        </technologies>
+    </project>
+    <project>
+        <title>Scientific Calculator</title>
+        <description>Scientific Calculator designed to perform calculations in science, engineering, and mathematics.</description>
+        <technologies>
+            <technology>Java</technology>
+            <technology>Swing</technology>
+            <technology>Apache Commons Math</technology>
+        </technologies>
+    </project>
+</projects>
