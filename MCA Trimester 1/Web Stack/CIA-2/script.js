@@ -6,22 +6,25 @@ document.addEventListener('DOMContentLoaded', function() {
     xhr.onload = function() {
         if (this.status === 200) {
             const repos = JSON.parse(this.responseText);
+            console.log('API Response:', repos); // Log the API response to the console
             repos.forEach(repo => {
-                // Only display repositories with a description
-                if (repo.description) {
-                    const li = document.createElement('li');
-                    li.className = 'list-group-item';
-                    li.innerHTML = `
-                        <strong>${repo.name}</strong>: ${repo.description}
-                        <br>
-                        <a href="${repo.html_url}" target="_blank">View Repository</a>
-                    `;
-                    repoList.appendChild(li);
-                }
+                const li = document.createElement('li');
+                li.className = 'list-group-item';
+                li.innerHTML = `
+                    <strong>${repo.name}</strong>: ${repo.description ? repo.description : 'No description available'}
+                    <br>
+                    <a href="${repo.html_url}" target="_blank">View Repository</a>
+                `;
+                repoList.appendChild(li);
             });
         } else {
+            console.error('Failed to load repositories. Status:', this.status);
             repoList.innerHTML = '<li class="list-group-item">Failed to load repositories.</li>';
         }
+    };
+    xhr.onerror = function() {
+        console.error('Request error');
+        repoList.innerHTML = '<li class="list-group-item">Failed to load repositories due to a network error.</li>';
     };
     xhr.send();
 });

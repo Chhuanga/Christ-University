@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="MCA Trimester 1\Web Stack\Web 3\transform.xsl"?>
 <!DOCTYPE f1_stats SYSTEM "f1_stats.dtd">
-<f1_stats xmlns="http://example.com/f1_stats" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://example.com/f1_stats f1_stats.xsd">
+<?xml-stylesheet type="text/xsl" href="transform.xsl"?>
   <driver>
     <name>Lewis Hamilton</name>
     <team>Mercedes</team>

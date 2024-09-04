@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Driver Stats</title>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+        // Load the XML file
+        function loadXMLDoc(filename) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", filename, false);
+            xhttp.send();
+            return xhttp.responseXML;
+        }
+
+        // Perform the XSLT transformation
+        function transformXML() {
+            // Load the XML and XSL files
+            var xml = loadXMLDoc("f1_stats.xml");
+            var xsl = loadXMLDoc("transform.xsl");
+
+            // Code for IE
+            if (window.ActiveXObject || "ActiveXObject" in window) {
+                var ex = xml.transformNode(xsl);
+                document.getElementById("output").innerHTML = ex;
+            }
+            // Code for other browsers
+            else if (document.implementation && document.implementation.createDocument) {
+                var xsltProcessor = new XSLTProcessor();
+                xsltProcessor.importStylesheet(xsl);
+                var resultDocument = xsltProcessor.transformToFragment(xml, document);
+                document.getElementById("output").appendChild(resultDocument);
+            }
+        }
+
+        // Call the function to transform XML
+        transformXML();
+    </script>
+</body>
+</html>
