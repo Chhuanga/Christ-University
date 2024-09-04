@@ -6,39 +6,127 @@
     
     <title>User Registration</title>
     <style>
-        .error { color: red; }
-        .valid { border: 2px solid green; }
-        .invalid { border: 2px solid red; }
-        .feedback { display: inline-block; margin-left: 10px; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .valid {
+            border-color: green;
+        }
+
+        .invalid {
+            border-color: red;
+        }
+
+        .feedback {
+            position: absolute;
+            right: 10px;
+            top: 35px;
+            font-size: 18px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+        }
     </style>
 </head>
 <body>
-    <h1>User Registration</h1>
     <form id="registrationForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <span class="feedback" id="nameFeedback"></span>
-        <br><br>
+        <h1>User Registration</h1>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <span class="feedback" id="nameFeedback"></span>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <span class="feedback" id="emailFeedback"></span>
-        <br><br>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="feedback" id="emailFeedback"></span>
+        </div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <span class="feedback" id="passwordFeedback"></span>
-        <br><br>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <span class="feedback" id="passwordFeedback"></span>
+            <div class="error-message" id="passwordErrorMessage"></div>
+        </div>
 
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required>
-        <span class="feedback" id="confirmPasswordFeedback"></span>
-        <br><br>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <span class="feedback" id="confirmPasswordFeedback"></span>
+        </div>
 
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" required>
-        <span class="feedback" id="dobFeedback"></span>
-        <br><br>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+            <span class="feedback" id="dobFeedback"></span>
+        </div>
 
         <button type="submit" id="submitButton">Register</button>
     </form>
@@ -58,13 +146,15 @@
             const passwordFeedback = document.getElementById('passwordFeedback');
             const confirmPasswordFeedback = document.getElementById('confirmPasswordFeedback');
             const dobFeedback = document.getElementById('dobFeedback');
+            const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 
             function validateName() {
                 const name = nameInput.value.trim();
                 const isValid = /^[A-Za-z\s]{3,}$/.test(name);
                 nameInput.classList.toggle('valid', isValid);
                 nameInput.classList.toggle('invalid', !isValid);
-                nameFeedback.textContent = isValid ? '✔️' : '❌ Name must be at least 3 characters long and contain only letters and spaces.';
+                nameFeedback.textContent = isValid ? '✔️' : '❌';
+                nameFeedback.title = isValid ? '' : 'Name must be at least 3 characters long and contain only letters and spaces.';
                 return isValid;
             }
 
@@ -73,16 +163,31 @@
                 const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
                 emailInput.classList.toggle('valid', isValid);
                 emailInput.classList.toggle('invalid', !isValid);
-                emailFeedback.textContent = isValid ? '✔️' : '❌ Invalid email format.';
+                emailFeedback.textContent = isValid ? '✔️' : '❌';
+                emailFeedback.title = isValid ? '' : 'Invalid email format.';
                 return isValid;
             }
 
             function validatePassword() {
                 const password = passwordInput.value.trim();
-                const isValid = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
+                let errorMessage = '';
+                let isValid = true;
+
+                if (password.length < 8) {
+                    errorMessage = 'Password must be at least 8 characters long.';
+                    isValid = false;
+                } else if (!/[A-Za-z]/.test(password)) {
+                    errorMessage = 'Password must contain at least one letter.';
+                    isValid = false;
+                } else if (!/\d/.test(password)) {
+                    errorMessage = 'Password must contain at least one number.';
+                    isValid = false;
+                }
+
                 passwordInput.classList.toggle('valid', isValid);
                 passwordInput.classList.toggle('invalid', !isValid);
-                passwordFeedback.textContent = isValid ? '✔️' : '❌ Password must be at least 8 characters long and contain both letters and numbers.';
+                passwordFeedback.textContent = isValid ? '✔️' : '❌';
+                passwordErrorMessage.textContent = errorMessage;
                 return isValid;
             }
 
@@ -92,7 +197,8 @@
                 const isValid = password === confirmPassword;
                 confirmPasswordInput.classList.toggle('valid', isValid);
                 confirmPasswordInput.classList.toggle('invalid', !isValid);
-                confirmPasswordFeedback.textContent = isValid ? '✔️' : '❌ Passwords do not match.';
+                confirmPasswordFeedback.textContent = isValid ? '✔️' : '❌';
+                confirmPasswordFeedback.title = isValid ? '' : 'Passwords do not match.';
                 return isValid;
             }
 
@@ -104,7 +210,8 @@
                 const isValid = age >= 18;
                 dobInput.classList.toggle('valid', isValid);
                 dobInput.classList.toggle('invalid', !isValid);
-                dobFeedback.textContent = isValid ? '✔️' : '❌ You must be at least 18 years old.';
+                dobFeedback.textContent = isValid ? '✔️' : '❌';
+                dobFeedback.title = isValid ? '' : 'You must be at least 18 years old.';
                 return isValid;
             }
 
