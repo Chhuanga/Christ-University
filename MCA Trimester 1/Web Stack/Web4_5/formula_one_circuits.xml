@@ -27,4 +27,76 @@
         <f1:seasons>1958</f1:seasons>
         <f1:grands_prix_held>1</f1:grands_prix_held>
     </f1:circuit>
+    <f1:circuit>
+        <f1:name>Albert Park Circuit</f1:name>
+        <f1:type>Street circuit</f1:type>
+        <f1:direction>Clockwise</f1:direction>
+        <f1:location>Melbourne</f1:location>
+        <f1:country>Australia</f1:country>
+        <f1:length>5.303</f1:length>
+        <f1:turns>16</f1:turns>
+        <f1:grand_prix>Australian Grand Prix</f1:grand_prix>
+        <f1:seasons>1996-present</f1:seasons>
+        <f1:grands_prix_held>25</f1:grands_prix_held>
+    </f1:circuit>
+    <f1:circuit>
+        <f1:name>Autodromo Nazionale Monza</f1:name>
+        <f1:type>Permanent circuit</f1:type>
+        <f1:direction>Clockwise</f1:direction>
+        <f1:location>Monza</f1:location>
+        <f1:country>Italy</f1:country>
+        <f1:length>5.793</f1:length>
+        <f1:turns>11</f1:turns>
+        <f1:grand_prix>Italian Grand Prix</f1:grand_prix>
+        <f1:seasons>1950-present</f1:seasons>
+        <f1:grands_prix_held>71</f1:grands_prix_held>
+    </f1:circuit>
+    <f1:circuit>
+        <f1:name>Silverstone Circuit</f1:name>
+        <f1:type>Permanent circuit</f1:type>
+        <f1:direction>Clockwise</f1:direction>
+        <f1:location>Silverstone</f1:location>
+        <f1:country>United Kingdom</f1:country>
+        <f1:length>5.891</f1:length>
+        <f1:turns>18</f1:turns>
+        <f1:grand_prix>British Grand Prix</f1:grand_prix>
+        <f1:seasons>1950-present</f1:seasons>
+        <f1:grands_prix_held>55</f1:grands_prix_held>
+    </f1:circuit>
+    <f1:circuit>
+        <f1:name>Marina Bay Street Circuit</f1:name>
+        <f1:type>Street circuit</f1:type>
+        <f1:direction>Anti-clockwise</f1:direction>
+        <f1:location>Marina Bay</f1:location>
+        <f1:country>Singapore</f1:country>
+        <f1:length>5.063</f1:length>
+        <f1:turns>23</f1:turns>
+        <f1:grand_prix>Singapore Grand Prix</f1:grand_prix>
+        <f1:seasons>2008-present</f1:seasons>
+        <f1:grands_prix_held>12</f1:grands_prix_held>
+    </f1:circuit>
+    <f1:circuit>
+        <f1:name>Yas Marina Circuit</f1:name>
+        <f1:type>Permanent circuit</f1:type>
+        <f1:direction>Anti-clockwise</f1:direction>
+        <f1:location>Abu Dhabi</f1:location>
+        <f1:country>United Arab Emirates</f1:country>
+        <f1:length>5.554</f1:length>
+        <f1:turns>21</f1:turns>
+        <f1:grand_prix>Abu Dhabi Grand Prix</f1:grand_prix>
+        <f1:seasons>2009-present</f1:seasons>
+        <f1:grands_prix_held>11</f1:grands_prix_held>
+    </f1:circuit>
+    <f1:circuit>
+        <f1:name>Interlagos Circuit</f1:name>
+        <f1:type>Permanent circuit</f1:type>
+        <f1:direction>Anti-clockwise</f1:direction>
+        <f1:location>São Paulo</f1:location>
+        <f1:country>Brazil</f1:country>
+        <f1:length>4.309</f1:length>
+        <f1:turns>15</f1:turns>
+        <f1:grand_prix>Brazilian Grand Prix</f1:grand_prix>
+        <f1:seasons>1973-present</f1:seasons>
+        <f1:grands_prix_held>38</f1:grands_prix_held>
+    </f1:circuit>
 </f1:formula_one_circuits>
