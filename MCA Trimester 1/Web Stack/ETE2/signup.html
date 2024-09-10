@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="js/signup.js" defer></script>
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h1>PAWS</h1>
+        </div>
+        <div class="navbar-right">
+            <a href="index.html" class="btn">Home</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <span id="nameFeedback" class="feedback"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <span id="emailFeedback" class="feedback"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <span id="passwordFeedback" class="feedback"></span>
+                <small id="passwordCriteria">Password must be at least 6 characters long.</small>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <span id="confirmPasswordFeedback" class="feedback"></span>
+                <small id="passwordMatchFeedback"></small>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="dogLover" name="dogLover" required>
+                <label for="dogLover">I am a dog lover</label>
+                <span id="dogLoverFeedback" class="feedback"></span>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</body>
+
+</html>

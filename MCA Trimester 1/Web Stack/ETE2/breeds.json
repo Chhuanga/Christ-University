@@ -1,0 +1,65 @@
+[
+    {
+        "breedId": "B101",
+        "breedName": "Golden Retriever",
+        "description": "Friendly, intelligent, and devoted. Great family dog.",
+        "size": "Large",
+        "lifespan": "10-12 years",
+        "origin": "Scotland",
+        "imageUrl": "https://images.dog.ceo/breeds/retriever-golden/n02099601_3004.jpg"
+    },
+    {
+        "breedId": "B102",
+        "breedName": "Bulldog",
+        "description": "Docile, willful, and friendly. Great companion dog.",
+        "size": "Medium",
+        "lifespan": "8-10 years",
+        "origin": "England",
+        "imageUrl": "https://images.dog.ceo/breeds/bulldog/n02096585_10347.jpg"
+    },
+    {
+        "breedId": "B103",
+        "breedName": "Beagle",
+        "description": "Curious, friendly, and merry. Great hunting dog.",
+        "size": "Small",
+        "lifespan": "12-15 years",
+        "origin": "England",
+        "imageUrl": "https://images.dog.ceo/breeds/beagle/n02088364_11147.jpg"
+    },
+    {
+        "breedId": "B104",
+        "breedName": "Shiba Inu",
+        "description": "Alert, active, and attentive. Great companion dog.",
+        "size": "Small",
+        "lifespan": "12-15 years",
+        "origin": "Japan",
+        "imageUrl": "https://images.dog.ceo/breeds/shiba/n02097130_10047.jpg"
+    },
+    {
+        "breedId": "B105",
+        "breedName": "Boxer",
+        "description": "Bright, fun-loving, and active. Great family dog.",
+        "size": "Medium",
+        "lifespan": "10-12 years",
+        "origin": "Germany",
+        "imageUrl": "https://images.dog.ceo/breeds/boxer/n02108089_1003.jpg"
+    },
+    {
+        "breedId": "B106",
+        "breedName": "Dalmatian",
+        "description": "Energetic, playful, and sensitive. Great companion dog.",
+        "size": "Large",
+        "lifespan": "10-13 years",
+        "origin": "Croatia",
+        "imageUrl": "https://images.dog.ceo/breeds/dalmatian/n02106382_10171.jpg"
+    },
+    {
+        "breedId": "B107",
+        "breedName": "Pomeranian",
+        "description": "Inquisitive, bold, and lively. Great companion dog.",
+        "size": "Small",
+        "lifespan": "12-16 years",
+        "origin": "Germany",
+        "imageUrl": "https://images.dog.ceo/breeds/pomeranian/n02112018_10047.jpg"
+    }
+]
