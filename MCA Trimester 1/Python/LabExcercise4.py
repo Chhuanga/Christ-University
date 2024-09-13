@@ -21,7 +21,7 @@ analyzers = [
     TextSentimentAnalyzer(),
     ImageSentimentAnalyzer(),
     AudioSentimentAnalyzer()
-]
+] 
 
 data_samples = [
     "I love programming!",

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Stats Catalogue</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">F1 Stats</a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Drivers</a></li>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Races</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="hero">
+        <div class="container">
+            <h1>Welcome to the F1 Stats Catalogue</h1>
+            <p>Your ultimate source for Formula 1 statistics and information.</p>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Drivers Championship 2023</h2>
+        <div class="controls">
+            <input type="text" id="search" placeholder="Search by driver name...">
+            <select id="sort">
+                <option value="name">Sort by Name</option>
+                <option value="points">Sort by Points</option>
+            </select>
+        </div>
+        <div id="stats-container"></div>
+        <div class="pagination">
+            <button id="prev">Previous</button>
+            <span id="page-info"></span>
+            <button id="next">Next</button>
+        </div>
+        <div id="error-message"></div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 F1 Stats. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
