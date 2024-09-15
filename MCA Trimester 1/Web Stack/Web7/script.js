@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => {
                 errorMessage.textContent = 'Error fetching data: ' + error;
-                console.error('Error fetching data:', error); // Debugging statement
+                console.error('Error fetching data:', error); 
             });
     }
 

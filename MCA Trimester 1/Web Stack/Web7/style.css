@@ -1,9 +1,14 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+/* Reset default margins and paddings */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222223;
+    color: #333;
 }
 
 .navbar {
@@ -21,7 +26,7 @@ body {
 .navbar .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #fff;
+    color: #272626;
     text-decoration: none;
 }
 
@@ -29,6 +34,7 @@ body {
     list-style: none;
     display: flex;
     gap: 20px;
+    color:#000
 }
 
 .navbar .nav-links li {
@@ -47,33 +53,12 @@ body {
     border-radius: 5px;
 }
 
-.hero {
-    background: url('https://www.formula1.com/content/dam/fom-website/sutton/2021/Italy/Sunday/1337648.jpg.transform/9col/image.jpg') no-repeat center center/cover;
-    color: #fff;
-    padding: 100px 0;
-    text-align: center;
-}
-
-.hero .container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 24px;
-}
-
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #7d7b7b;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -83,6 +68,14 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+}
+
+.controls input,
+.controls select {
+    color: #000; /* Set text color to black */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 #stats-container {
@@ -105,6 +98,11 @@ body {
 .stat-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card h2,
+.stat-card p {
+    color: #000; /* Set text color to black */
 }
 
 .driver-image {
@@ -135,15 +133,6 @@ body {
     background-color: #575757;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-
-footer .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#error-message {
+    color: red;
 }
