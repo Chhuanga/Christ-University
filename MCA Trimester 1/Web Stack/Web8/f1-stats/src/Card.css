@@ -1,0 +1,45 @@
+/* src/Card.css */
+.card {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.like-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+    color: #ccc;
+    /* Initial color */
+}
+
+.like-icon.liked {
+    transform: scale(1.5);
+    color: red;
+    /* Color when liked */
+}
+
+.feather-heart {
+    width: 24px;
+    height: 24px;
+}
