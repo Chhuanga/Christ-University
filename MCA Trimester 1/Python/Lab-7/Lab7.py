@@ -1,8 +1,8 @@
 import pandas as pd
 
-covid_data = pd.read_csv("MCA Trimester 1\Python\Lab-7\synthetic_covid_data.csv")
+covid_data = pd.read_csv("E:\\New folder\Christ-University\MCA Trimester 1\Python\Lab-7\synthetic_covid_data.csv")
 
-gdp_data = pd.read_csv("MCA Trimester 1\Python\Lab-7\synthetic_gdp_data.csv")
+gdp_data = pd.read_csv("E:\\New folder\Christ-University\MCA Trimester 1\Python\Lab-7\synthetic_gdp_data.csv")
 
 covid_data['month'] = pd.to_datetime(covid_data['month'])
 covid_duplicates = covid_data[covid_data.duplicated()]
