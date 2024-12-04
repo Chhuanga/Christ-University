@@ -16,6 +16,8 @@ void traverseTransactions(struct Transaction *head);
 struct Transaction* searchTransaction(struct Transaction *head, int id);
 void displayMenu();
 void handleUserInput(struct Transaction **head);
+int validateIntInput(int *value);
+int validateFloatInput(float *value);
 
 int main() {
     struct Transaction *head = NULL;
@@ -95,6 +97,22 @@ void displayMenu() {
     printf("Enter your choice: ");
 }
 
+int validateIntInput(int *value) {
+    if (scanf("%d", value) != 1) {
+        while (getchar() != '\n'); // Clear the input buffer
+        return 0;
+    }
+    return 1;
+}
+
+int validateFloatInput(float *value) {
+    if (scanf("%f", value) != 1) {
+        while (getchar() != '\n'); // Clear the input buffer
+        return 0;
+    }
+    return 1;
+}
+
 void handleUserInput(struct Transaction **head) {
     int choice, id;
     char description[100];
@@ -103,29 +121,42 @@ void handleUserInput(struct Transaction **head) {
 
     while (1) {
         displayMenu();
-        scanf("%d", &choice);
+        if (!validateIntInput(&choice)) {
+            printf("Invalid choice. Please enter an integer.\n");
+            continue;
+        }
         switch (choice) {
             case 1:
                 printf("Enter ID: ");
-                scanf("%d", &id);
+                while (!validateIntInput(&id)) {
+                    printf("Invalid input. Please enter an integer.\n");
+                }
                 printf("Enter Description: ");
                 scanf(" %[^\n]", description);
                 printf("Enter Amount: ");
-                scanf("%f", &amount);
+                while (!validateFloatInput(&amount)) {
+                    printf("Invalid input. Please enter a float.\n");
+                }
                 insertTransaction(head, id, description, amount);
                 break;
             case 2:
                 printf("Enter ID: ");
-                scanf("%d", &id);
+                while (!validateIntInput(&id)) {
+                    printf("Invalid input. Please enter an integer.\n");
+                }
                 printf("Enter Description: ");
                 scanf(" %[^\n]", description);
                 printf("Enter Amount: ");
-                scanf("%f", &amount);
+                while (!validateFloatInput(&amount)) {
+                    printf("Invalid input. Please enter a float.\n");
+                }
                 insertTransactionAtEnd(head, id, description, amount);
                 break;
             case 3:
                 printf("Enter ID: ");
-                scanf("%d", &id);
+                while (!validateIntInput(&id)) {
+                    printf("Invalid input. Please enter an integer.\n");
+                }
                 deleteTransaction(head, id);
                 break;
             case 4:
@@ -133,7 +164,9 @@ void handleUserInput(struct Transaction **head) {
                 break;
             case 5:
                 printf("Enter ID: ");
-                scanf("%d", &id);
+                while (!validateIntInput(&id)) {
+                    printf("Invalid input. Please enter an integer.\n");
+                }
                 result = searchTransaction(*head, id);
                 if (result != NULL) {
                     printf("ID: %d, Description: %s, Amount: %.2f\n", result->id, result->description, result->amount);
