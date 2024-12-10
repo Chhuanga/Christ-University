@@ -24,8 +24,8 @@ public class SharedDigit {
 
     public static void main(String[] args) {
         // Test cases taken from question paper
-        System.out.println(hasSharedDigit(12, 23)); // should return true
-        System.out.println(hasSharedDigit(9, 99));  // should return false
-        System.out.println(hasSharedDigit(15, 55)); // should return true
+        System.out.println(hasSharedDigit(12, 23)); 
+        System.out.println(hasSharedDigit(9, 99));  
+        System.out.println(hasSharedDigit(15, 55)); 
     }
 }
