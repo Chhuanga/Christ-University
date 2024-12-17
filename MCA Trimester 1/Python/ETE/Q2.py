@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 #Loading the data into a DataFrame
-file_path = 'ETE\sales_data_analysis - sales_data_analysis.csv' 
+file_path = 'sales_data_analysis - sales_data_analysis.csv' 
 df = pd.read_csv(file_path)
 
 # Plotting a bar chart 
