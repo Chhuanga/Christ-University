@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 
 struct TreeNode
 {
@@ -11,6 +13,11 @@ struct TreeNode
 struct TreeNode *createNode(int key)
 {
     struct TreeNode *newNode = (struct TreeNode *)malloc(sizeof(struct TreeNode));
+    if (newNode == NULL)
+    {
+        fprintf(stderr, "Memory allocation failed!\n");
+        exit(EXIT_FAILURE);
+    }
     newNode->key = key;
     newNode->left = NULL;
     newNode->right = NULL;
@@ -26,6 +33,8 @@ struct TreeNode *insert(struct TreeNode *node, int key)
         node->left = insert(node->left, key);
     else if (key > node->key)
         node->right = insert(node->right, key);
+    else
+        printf("Key %d already exists in the tree. Duplicate keys are not allowed.\n", key);
 
     return node;
 }
@@ -41,7 +50,10 @@ struct TreeNode *minValueNode(struct TreeNode *node)
 struct TreeNode *deleteNode(struct TreeNode *root, int key)
 {
     if (root == NULL)
+    {
+        printf("Key %d not found in the tree.\n", key);
         return root;
+    }
 
     if (key < root->key)
         root->left = deleteNode(root->left, key);
@@ -71,7 +83,10 @@ struct TreeNode *deleteNode(struct TreeNode *root, int key)
 
 struct TreeNode *search(struct TreeNode *root, int key)
 {
-    if (root == NULL || root->key == key)
+    if (root == NULL)
+        return NULL;
+
+    if (key == root->key)
         return root;
 
     if (key < root->key)
@@ -84,20 +99,20 @@ int height(struct TreeNode *node)
 {
     if (node == NULL)
         return 0;
-    else
-    {
-        int leftHeight = height(node->left);
-        int rightHeight = height(node->right);
 
-        if (leftHeight > rightHeight)
-            return (leftHeight + 1);
-        else
-            return (rightHeight + 1);
-    }
+    int leftHeight = height(node->left);
+    int rightHeight = height(node->right);
+
+    return (leftHeight > rightHeight) ? (leftHeight + 1) : (rightHeight + 1);
 }
 
 void inorderTraversal(struct TreeNode *root)
 {
+    if (root == NULL)
+    {
+        printf("The tree is empty.\n");
+        return;
+    }
     if (root != NULL)
     {
         inorderTraversal(root->left);
@@ -108,6 +123,11 @@ void inorderTraversal(struct TreeNode *root)
 
 void preorderTraversal(struct TreeNode *root)
 {
+    if (root == NULL)
+    {
+        printf("The tree is empty.\n");
+        return;
+    }
     if (root != NULL)
     {
         printf("%d ", root->key);
@@ -118,11 +138,56 @@ void preorderTraversal(struct TreeNode *root)
 
 void postorderTraversal(struct TreeNode *root)
 {
+    if (root == NULL)
+    {
+        printf("The tree is empty.\n");
+        return;
+    }
     if (root != NULL)
     {
         postorderTraversal(root->left);
         postorderTraversal(root->right);
         printf("%d ", root->key);
+    }
+}
+
+int getValidatedInteger(const char *prompt)
+{
+    int key;
+    char buffer[100];
+
+    while (1)
+    {
+        printf("%s", prompt);
+        if (fgets(buffer, sizeof(buffer), stdin) != NULL)
+        {
+            char *newline = strchr(buffer, '\n');
+            if (newline)
+                *newline = '\0';
+
+            char *endptr;
+            key = strtol(buffer, &endptr, 10);
+
+            if (endptr != buffer && *endptr == '\0')
+                return key;
+
+            printf("Invalid input! Please enter a valid integer.\n");
+        }
+        else
+        {
+            printf("Error reading input! Please try again.\n");
+            clearerr(stdin);
+        }
+    }
+}
+
+void freeTree(struct TreeNode *root)
+{
+    if (root != NULL)
+    {
+        freeTree(root->left);
+        freeTree(root->right);
+        free(root);
     }
 }
 
@@ -143,23 +208,29 @@ int main()
         printf("7. Postorder Traversal\n");
         printf("8. Exit\n");
         printf("Enter your choice: ");
-        scanf("%d", &choice);
+
+        if (scanf("%d", &choice) != 1)
+        {
+            printf("Invalid input! Please enter a valid choice.\n");
+            while (getchar() != '\n')
+                ; // Clear input buffer
+            continue;
+        }
+
+        getchar(); // Consume the newline character left by scanf
 
         switch (choice)
         {
         case 1:
-            printf("Enter key to insert: ");
-            scanf("%d", &key);
+            key = getValidatedInteger("Enter key to insert: ");
             root = insert(root, key);
             break;
         case 2:
-            printf("Enter key to delete: ");
-            scanf("%d", &key);
+            key = getValidatedInteger("Enter key to delete: ");
             root = deleteNode(root, key);
             break;
         case 3:
-            printf("Enter key to search: ");
-            scanf("%d", &key);
+            key = getValidatedInteger("Enter key to search: ");
             struct TreeNode *result = search(root, key);
             if (result != NULL)
                 printf("Key %d found in the tree.\n", key);
@@ -185,7 +256,9 @@ int main()
             printf("\n");
             break;
         case 8:
-            exit(0);
+            freeTree(root);
+            printf("Exiting program.\n");
+            exit(EXIT_SUCCESS);
         default:
             printf("Invalid choice! Please try again.\n");
         }
