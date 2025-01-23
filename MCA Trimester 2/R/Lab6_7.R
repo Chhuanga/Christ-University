@@ -25,11 +25,14 @@ ggplot(data, aes(x = Training_Method, y = Productivity, fill = Training_Method))
   labs(title = "Boxplot of Productivity by Training Method", x = "Training Method", y = "Productivity") +
   theme_minimal()
 
-#Density Plot
+# Density Plot
 ggplot(data, aes(x = Productivity, fill = Training_Method)) +
-geom_density(alpha = 0.5) +
-  labs(title = "Density Plot of Productivity by Training Method", x = "Productivity", y = "Density") +
-  theme_minimal()
+  geom_density(alpha = 0.5) +
+  labs(title = "Density Plot of Productivity by Training Method", 
+       x = "Productivity", 
+       y = "Density") +
+  theme_minimal() +
+  scale_fill_discrete(name = "Training Method") # Optional: improve legend label
 
 #Interaction Plot
 

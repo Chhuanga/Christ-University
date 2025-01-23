@@ -1,0 +1,7 @@
+You are tasked with developing a Java Application to manage a small library database. The library database stores details about books
+including BookID, Title, Author, genre and price. The application should connect to a mysql database and allow the user to perform the following operations
+through a console based menu:
+1.Create
+2.Read
+3.Update
+4.Delete

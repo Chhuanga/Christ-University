@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Add any required dependencies here
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

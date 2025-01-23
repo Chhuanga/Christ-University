@@ -23,4 +23,12 @@ public class Product implements ProductOperations {
     public double calculatePrice() {
         return this.price;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
 }

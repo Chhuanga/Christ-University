@@ -1,4 +1,3 @@
-// Base class for all clothing items
 class Item {
     private String name;
     private double price;
@@ -19,11 +18,10 @@ class Item {
     }
 
     public void printItem() {
-        System.out.println(brand + " " + name + ": $" + price);
+        System.out.println(brand + " " + name + ": ₹" + price);
     }
 }
 
-// Class for Clothing items with size and color options
 class Clothing extends Item {
     private String size;
     private String color;
@@ -35,7 +33,7 @@ class Clothing extends Item {
         super(name, basePrice, brand);
         this.size = size;
         this.color = color;
-        this.customizations = new String[3];  // max 3 customizations
+        this.customizations = new String[3];
         this.maxCustomizations = 3;
         this.basePrice = basePrice;
     }
@@ -44,7 +42,7 @@ class Clothing extends Item {
         for (int i = 0; i < maxCustomizations; i++) {
             if (customizations[i] == null) {
                 customizations[i] = customization;
-                System.out.println("Added " + customization + " for an extra $" + price);
+                System.out.println("Added " + customization + " for an extra ₹" + price);
                 break;
             }
         }
@@ -63,10 +61,9 @@ class Clothing extends Item {
     }
 }
 
-// LuxuryItem class for premium clothing items
 class LuxuryItem extends Clothing {
     public LuxuryItem(String name, String size, String color, String brand) {
-        super(name, size, color, 999.99, brand);
+        super(name, size, color, 74999.25, brand);
     }
 
     @Override
@@ -75,7 +72,6 @@ class LuxuryItem extends Clothing {
     }
 }
 
-// Accessory class for items like belts, jewelry, etc.
 class Accessory extends Item {
     private String material;
 
@@ -91,7 +87,6 @@ class Accessory extends Item {
     }
 }
 
-// Shoes class with specific shoe attributes
 class Shoes extends Item {
     private String size;
     private String style;
@@ -110,16 +105,15 @@ class Shoes extends Item {
     }
 }
 
-// ShoppingCart class that combines multiple items
 class ShoppingCart {
     private Clothing mainItem;
     private Accessory accessory;
     private Shoes shoes;
 
     public ShoppingCart() {
-        this.mainItem = new Clothing("T-Shirt", "M", "Black", 29.99, "BrandX");
-        this.accessory = new Accessory("Belt", "Leather", 49.99, "BrandX");
-        this.shoes = new Shoes("Sneakers", "42", "Casual", 89.99, "BrandX");
+        this.mainItem = new Clothing("T-Shirt", "M", "Black", 2249.25, "BrandX");
+        this.accessory = new Accessory("Belt", "Leather", 3749.25, "BrandX");
+        this.shoes = new Shoes("Sneakers", "42", "Casual", 6749.25, "BrandX");
     }
 
     public ShoppingCart(Clothing mainItem, Accessory accessory, Shoes shoes) {
@@ -138,38 +132,36 @@ class ShoppingCart {
         accessory.printItem();
         shoes.printItem();
         double total = mainItem.getPrice() + accessory.getPrice() + shoes.getPrice();
-        System.out.println("Subtotal: $" + total);
-        System.out.println("Tax (8%): $" + (total * 0.08));
-        System.out.println("Total: $" + (total * 1.08));
+        System.out.println("Subtotal: ₹" + total);
+        System.out.println("Tax (8%): ₹" + (total * 0.08));
+        System.out.println("Total: ₹" + (total * 1.08));
     }
 }
 
 public class ClothingStore {
     public static void main(String[] args) {
-        // Default Shopping Cart
+
         ShoppingCart defaultCart = new ShoppingCart();
         defaultCart.printOrder();
 
         System.out.println("\n--- Custom Order ---\n");
 
-        // Custom Shopping Cart
-        Clothing customShirt = new Clothing("Polo Shirt", "L", "Navy", 79.99, "BrandX");
-        Accessory customWatch = new Accessory("Watch", "Stainless Steel", 199.99, "BrandX");
-        Shoes customShoes = new Shoes("Oxford", "43", "Formal", 159.99, "BrandX");
+        Clothing customShirt = new Clothing("Polo Shirt", "L", "Navy", 5999.25, "BrandX");
+        Accessory customWatch = new Accessory("Watch", "Stainless Steel", 14999.25, "BrandX");
+        Shoes customShoes = new Shoes("Oxford", "43", "Formal", 11999.25, "BrandX");
         ShoppingCart customCart = new ShoppingCart(customShirt, customWatch, customShoes);
 
-        customCart.addCustomization("Monogram", 15.00);
-        customCart.addCustomization("Special Buttons", 10.00);
+        customCart.addCustomization("Monogram", 1125.00);
+        customCart.addCustomization("Special Buttons", 750.00);
         customCart.printOrder();
 
         System.out.println("\n--- Luxury Order ---\n");
 
         // Luxury Shopping Cart
         LuxuryItem luxurySuit = new LuxuryItem("Designer Suit", "M", "Charcoal", "LuxuryBrand");
-        ShoppingCart luxuryCart = new ShoppingCart(luxurySuit, 
-            new Accessory("Silk Tie", "Silk", 299.99, "LuxuryBrand"),
-            new Shoes("Italian Leather Shoes", "42", "Formal", 599.99, "LuxuryBrand"));
+        ShoppingCart luxuryCart = new ShoppingCart(luxurySuit,
+                new Accessory("Silk Tie", "Silk", 22499.25, "LuxuryBrand"),
+                new Shoes("Italian Leather Shoes", "42", "Formal", 44999.25, "LuxuryBrand"));
         luxuryCart.printOrder();
     }
 }
-

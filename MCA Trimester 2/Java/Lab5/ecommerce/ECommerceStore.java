@@ -1,5 +1,8 @@
+
 // ECommerceStore.java
 import java.util.Scanner;
+
+import ecommerce.products.Product;
 
 class Product {
     private String name;
@@ -12,7 +15,7 @@ class Product {
 
     public synchronized void buyProduct() {
         if (stock > 0) {
-            
+
             System.out.println(Thread.currentThread().getName() + " bought 1 " + name);
             stock--;
         } else {
@@ -36,21 +39,20 @@ class Customer extends Thread {
         try {
             Thread.sleep(200);
             product.buyProduct();
-             
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 }
 
-public class ECommerceStore extends Thread{
+public class ECommerceStore extends Thread {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Product product = new Product("Laptop", 5);
-        
 
         while (true) {
-        
+
             System.out.println("1. Buy Product");
             System.out.println("2. Show Stock");
             System.out.println("3. Exit");
@@ -59,16 +61,16 @@ public class ECommerceStore extends Thread{
 
             switch (choice) {
                 case 1:
-                    
+
                     for (int i = 0; i < 5; i++) {
                         new Customer(product).start();
-                            try{
-                Thread.sleep(1000);
-            }catch(InterruptedException e){
-                e.printStackTrace();
-            }
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
-                    
+                    }
+
                     break;
                 case 2:
                     product.showStock();

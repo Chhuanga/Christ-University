@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 #define MAX 100
+#define MIN_VERTICES 1
 
 typedef struct Node
 {
@@ -16,149 +18,163 @@ typedef struct Graph
     int *visited;
 } Graph;
 
+// Function prototypes
 Node *createNode(int);
 Graph *createGraph(int);
-void addEdge(Graph *, int, int);
-void BFT(Graph *, int, int);
-void DFT(Graph *, int, int);
-void DFTUtil(Graph *, int, int, int *);
+int validateVertex(Graph *graph, int vertex);
+int addEdge(Graph *graph, int src, int dest);
+void BFT(Graph *graph, int startVertex, int searchVertex);
+void DFT(Graph *graph, int startVertex, int searchVertex);
+void DFTUtil(Graph *graph, int vertex, int searchVertex, int *visited);
+void freeGraph(Graph *graph);
 
 int main()
 {
     int vertices, edges, startVertex, searchVertex;
-    printf("Enter the number of vertices: ");
-    scanf("%d", &vertices);
+
+    printf("Enter the number of vertices (1-%d): ", MAX);
+    if (scanf("%d", &vertices) != 1 || vertices < MIN_VERTICES || vertices > MAX)
+    {
+        printf("Error: Invalid number of vertices. Must be between %d and %d.\n",
+               MIN_VERTICES, MAX);
+        return EXIT_FAILURE;
+    }
 
     Graph *graph = createGraph(vertices);
+    if (!graph)
+    {
+        printf("Error: Failed to create graph.\n");
+        return EXIT_FAILURE;
+    }
 
-    printf("Enter the number of edges: ");
-    scanf("%d", &edges);
+    int maxEdges = vertices * (vertices - 1) / 2;
+    printf("Enter the number of edges (0-%d): ", maxEdges);
+    if (scanf("%d", &edges) != 1 || edges < 0 || edges > maxEdges)
+    {
+        printf("Error: Invalid number of edges. Must be between 0 and %d.\n", maxEdges);
+        freeGraph(graph);
+        return EXIT_FAILURE;
+    }
 
     printf("Enter the edges (source destination):\n");
     for (int i = 0; i < edges; i++)
     {
         int src, dest;
-        scanf("%d %d", &src, &dest);
-        addEdge(graph, src, dest);
+        if (scanf("%d %d", &src, &dest) != 2)
+        {
+            printf("Error: Invalid input format for edge.\n");
+            freeGraph(graph);
+            return EXIT_FAILURE;
+        }
+
+        if (!addEdge(graph, src, dest))
+        {
+            printf("Error: Invalid edge (%d, %d). Vertices must be between 0 and %d.\n",
+                   src, dest, vertices - 1);
+            freeGraph(graph);
+            return EXIT_FAILURE;
+        }
     }
 
     printf("Enter the starting vertex for traversal: ");
-    scanf("%d", &startVertex);
-
-    printf("Enter the vertex to search for: ");
-    scanf("%d", &searchVertex);
-
-    printf("Breadth-First Traversal:\n");
-    BFT(graph, startVertex, searchVertex);
-
-    printf("Depth-First Traversal:\n");
-    DFT(graph, startVertex, searchVertex);
-
-    return 0;
-}
-
-Node *createNode(int v)
-{
-    Node *newNode = malloc(sizeof(Node));
-    newNode->vertex = v;
-    newNode->next = NULL;
-    return newNode;
-}
-
-Graph *createGraph(int vertices)
-{
-    Graph *graph = malloc(sizeof(Graph));
-    graph->numVertices = vertices;
-
-    graph->adjLists = malloc(vertices * sizeof(Node *));
-    graph->visited = malloc(vertices * sizeof(int));
-
-    for (int i = 0; i < vertices; i++)
+    if (scanf("%d", &startVertex) != 1 || !validateVertex(graph, startVertex))
     {
-        graph->adjLists[i] = NULL;
-        graph->visited[i] = 0;
+        printf("Error: Invalid starting vertex.\n");
+        freeGraph(graph);
+        return EXIT_FAILURE;
     }
 
-    return graph;
+    printf("Enter the vertex to search for: ");
+    if (scanf("%d", &searchVertex) != 1 || !validateVertex(graph, searchVertex))
+    {
+        printf("Error: Invalid search vertex.\n");
+        freeGraph(graph);
+        return EXIT_FAILURE;
+    }
+
+    printf("\nBreadth-First Traversal:\n");
+    BFT(graph, startVertex, searchVertex);
+
+    printf("\nDepth-First Traversal:\n");
+    DFT(graph, startVertex, searchVertex);
+
+    freeGraph(graph);
+    return EXIT_SUCCESS;
 }
 
-void addEdge(Graph *graph, int src, int dest)
+int validateVertex(Graph *graph, int vertex)
 {
+    return (vertex >= 0 && vertex < graph->numVertices);
+}
+
+int addEdge(Graph *graph, int src, int dest)
+{
+    if (!validateVertex(graph, src) || !validateVertex(graph, dest))
+    {
+        return 0;
+    }
+
+    // Check for self-loops
+    if (src == dest)
+    {
+        printf("Warning: Self-loops are not allowed.\n");
+        return 0;
+    }
+
+    // Check if edge already exists
+    Node *temp = graph->adjLists[src];
+    while (temp)
+    {
+        if (temp->vertex == dest)
+        {
+            printf("Warning: Edge (%d, %d) already exists.\n", src, dest);
+            return 0;
+        }
+        temp = temp->next;
+    }
+
     Node *newNode = createNode(dest);
+    if (!newNode)
+    {
+        return 0;
+    }
     newNode->next = graph->adjLists[src];
     graph->adjLists[src] = newNode;
 
     newNode = createNode(src);
+    if (!newNode)
+    {
+        return 0;
+    }
     newNode->next = graph->adjLists[dest];
     graph->adjLists[dest] = newNode;
+
+    return 1;
 }
 
-void BFT(Graph *graph, int startVertex, int searchVertex)
+// Memory cleanup function
+void freeGraph(Graph *graph)
 {
-    int *visited = malloc(graph->numVertices * sizeof(int));
-    for (int i = 0; i < graph->numVertices; i++)
-        visited[i] = 0;
-
-    int queue[MAX], front = 0, rear = 0;
-    queue[rear++] = startVertex;
-    visited[startVertex] = 1;
-
-    while (front < rear)
+    if (graph)
     {
-        int currentVertex = queue[front++];
-        printf("%d ", currentVertex);
-
-        if (currentVertex == searchVertex)
+        if (graph->adjLists)
         {
-            printf("\nVertex %d found!\n", searchVertex);
-            free(visited);
-            return;
-        }
-
-        Node *temp = graph->adjLists[currentVertex];
-        while (temp)
-        {
-            int adjVertex = temp->vertex;
-            if (!visited[adjVertex])
+            for (int i = 0; i < graph->numVertices; i++)
             {
-                queue[rear++] = adjVertex;
-                visited[adjVertex] = 1;
+                Node *current = graph->adjLists[i];
+                while (current)
+                {
+                    Node *temp = current;
+                    current = current->next;
+                    free(temp);
+                }
             }
-            temp = temp->next;
+            free(graph->adjLists);
         }
-    }
-
-    printf("\nVertex %d not found.\n", searchVertex);
-    free(visited);
-}
-
-void DFT(Graph *graph, int startVertex, int searchVertex)
-{
-    int *visited = malloc(graph->numVertices * sizeof(int));
-    for (int i = 0; i < graph->numVertices; i++)
-        visited[i] = 0;
-
-    DFTUtil(graph, startVertex, searchVertex, visited);
-    free(visited);
-}
-
-void DFTUtil(Graph *graph, int vertex, int searchVertex, int *visited)
-{
-    visited[vertex] = 1;
-    printf("%d ", vertex);
-
-    if (vertex == searchVertex)
-    {
-        printf("\nVertex %d found!\n", searchVertex);
-        return;
-    }
-
-    Node *temp = graph->adjLists[vertex];
-    while (temp)
-    {
-        int adjVertex = temp->vertex;
-        if (!visited[adjVertex])
-            DFTUtil(graph, adjVertex, searchVertex, visited);
-        temp = temp->next;
+        if (graph->visited)
+        {
+            free(graph->visited);
+        }
+        free(graph);
     }
 }

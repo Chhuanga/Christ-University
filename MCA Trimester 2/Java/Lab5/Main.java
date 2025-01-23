@@ -1,5 +1,6 @@
 import ecommerce.products.*;
 import ecommerce.orders.*;
+import ecommerce.orders.Order;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,7 +13,7 @@ public class Main {
         phone.addProduct("Phone", 800.00);
 
         // Create order
-        Product[] products = {laptop, phone};
+        Product[] products = { laptop, phone };
         Order<Product> order = new Order<>();
         order.createOrder(1, products);
 
