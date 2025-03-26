@@ -1,0 +1,41 @@
+#include "PlutoPilot.h"
+#include <math.h>
+
+int32_t Gyro_input;
+
+
+  void onLoopStartAutoInsertion() {
+  }
+
+  void onLoopStopAutoInsertion() {
+  }
+
+  void plutoInit() {
+    setUserLoopFrequency(100);
+  }
+
+
+  void onLoopStart () {
+    onLoopStartAutoInsertion();
+  }
+
+  void plutoLoop () {
+    Gyro_input = (fabs(Gyroscope.get(X)) + 1000);
+    Gyro_input = fmin(fmax(Gyro_input, 1000), 1500);
+    if (Gyroscope.get(X) > 45) {
+      Motor.set(M7,Gyro_input);
+      Motor.set(M8,Gyro_input);
+    }else if (Gyroscope.get(X) < -45) {
+      Motor.set(M5,Gyro_input);
+      Motor.set(M6,Gyro_input);
+    }
+  }
+
+  void onLoopFinish() {
+    Motor.set(M5,1000);
+    Motor.set(M6,1000);
+    Motor.set(M7,1000);
+    Motor.set(M8,1000);
+    onLoopStopAutoInsertion();
+  } 
+  

@@ -1,0 +1,61 @@
+#include "PlutoPilot.h"
+#include <math.h>
+
+Interval Timer1;
+int32_t Prev_Pressure;
+int32_t Curr_Pressure;
+
+
+  void onLoopStartAutoInsertion() {
+    Timer1.reset();
+    LED.flightStatus(DEACTIVATE);
+  }
+
+  void onLoopStopAutoInsertion() {
+    LED.flightStatus(ACTIVATE);
+  }
+
+  void plutoInit() {
+    setUserLoopFrequency(2000);
+  }
+
+
+  void onLoopStart () {
+    onLoopStartAutoInsertion();
+    Timer1.set(5000,false);
+    Prev_Pressure = Barometer.get(PRESSURE);
+  }
+
+  void plutoLoop () {
+    LED.set(BLUE,ON);
+    LED.set(RED,OFF);
+    LED.set(GREEN,OFF);
+    Curr_Pressure = Barometer.get(PRESSURE);
+    if (fabs((Curr_Pressure - Prev_Pressure)) > 6) {
+      LED.set(GREEN,TOGGLE);
+      LED.set(BLUE,ON);
+      LED.set(RED,OFF);
+      Command.takeOff(150);
+      Motor.set(M5,1200);
+      Motor.set(M6,1200);
+      Motor.set(M7,1200);
+      Motor.set(M8,1200);
+      Prev_Pressure = ((Curr_Pressure * 0.1) + (Prev_Pressure * 0.9));
+    }
+    if (Timer1.check()) {
+      Command.land(120);
+      Motor.set(M5,1000);
+      Motor.set(M7,1000);
+      Motor.set(M8,1000);
+      Motor.set(M6,1000);
+      Command.disarm();
+    }
+  }
+
+  void onLoopFinish() {
+    Motor.set(M7,1000);
+    Motor.set(M8,1000);
+    Motor.set(M6,1000);
+    Motor.set(M5,1000);
+    onLoopStopAutoInsertion();
+  }

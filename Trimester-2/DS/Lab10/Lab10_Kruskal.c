@@ -20,7 +20,7 @@ struct Graph *createGraph(int vertices, int edges)
     graph->edge = (struct Edge *)malloc(edges * sizeof(struct Edge));
     return graph;
 }
-
+ 
 struct subset
 {
     int parent;
@@ -99,8 +99,8 @@ void KruskalMST(struct Graph *graph)
 
 int main()
 {
-    int vertices = 4;
-    int edges = 5;
+    int vertices = 4; // Number of vertices
+    int edges = 5;    // Number of edges
     struct Graph *graph = createGraph(vertices, edges);
 
     // Add edges
@@ -126,6 +126,7 @@ int main()
 
     KruskalMST(graph);
 
+    // Free allocated memory
     free(graph->edge);
     free(graph);
 

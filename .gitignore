@@ -6,4 +6,5 @@
 **/venv/
 **/*.pdf
 **/*.docx
-**/shrey
+*.gitignore
+*.jpg
